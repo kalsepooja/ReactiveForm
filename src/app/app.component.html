@@ -14,6 +14,58 @@
           formControlName="email"
           class="form-control">
         </div>
+        <div class="form-group">
+          <label for="empId">Emp. Id</label>
+          <input type="text" id="empId" 
+          formControlName="empId"
+          class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="female">
+            <input type="radio" formControlName="gender" name="gender" value="female" id="female">Female
+          </label>
+          <label for="male">
+            <input type="radio" formControlName="gender" name="gender" value="male" id="male">Male
+          </label>
+          <label for="other">
+            <input type="radio" formControlName="gender" name="gender" value="other" id="other">Others
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-md-6" formGroupName="currentAdress">
+            <div class="form-group">
+              <!-- <input type="text" 
+              placeholder="country"
+              formControlName="country"
+              class="form-control"> -->
+              <select class="form-control" formControlName="country">
+                <option value="">Select Country</option>
+                <option [value]="contry.Country" *ngFor="let contry of CountryInfo">
+                  {{contry.Country}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="state"
+              formControlName="state"
+              class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="city"
+              formControlName="city"
+              class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="zipCode"
+              formControlName="zipCode"
+              class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
         <div class="text-right">
        <button class="btn btn-primary" type="submit">sign up</button>
         </div>
