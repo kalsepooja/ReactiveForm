@@ -1,6 +1,9 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
+  <div class="row mb-4">
+    <div class="col-md-10 offset-md-1">
+      <div class="text-center bg-success mb-4">
+        <p class="text-black">User SignUp Form</p>
+        </div>
       <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
         <div class="form-group">
           <label for="userName">UserName</label>
@@ -33,11 +36,43 @@
         </div>
         <div class="row">
           <div class="col-md-6" formGroupName="currentAdress">
+            <p class="alert alert-info">Current Adress</p>
             <div class="form-group">
-              <!-- <input type="text" 
-              placeholder="country"
-              formControlName="country"
-              class="form-control"> -->
+              <select class="form-control" formControlName="country">
+                <option value="">Select Country</option>
+                <option [value]="contry.Country" *ngFor="let contry of CountryInfo">
+                  {{contry.Country}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="state"
+              formControlName="state"
+              class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="city"
+              formControlName="city"
+              class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              placeholder="zipCode"
+              formControlName="zipCode"
+              class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="isAddressSame">
+                <input type="checkbox" formControlName="isAddressSame">
+                   Permenent address is same as Current
+               </label>
+            </div>
+          </div>
+          <div class="col-md-6" formGroupName="permenentAdress">
+            <p class="alert alert-info">Permenent Adress</p>
+            <div class="form-group">
               <select class="form-control" formControlName="country">
                 <option value="">Select Country</option>
                 <option [value]="contry.Country" *ngFor="let contry of CountryInfo">
@@ -64,11 +99,23 @@
               class="form-control">
             </div>
           </div>
-          <div class="col-md-6"></div>
         </div>
-        <div class="text-right">
-       <button class="btn btn-primary" type="submit">sign up</button>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="comfirmPassword">Confirm Password</label>
+              <input type="password" id="comfirmPassword" formControlName="comfirmPassword" class="form-control">
+            </div>
+          </div>
         </div>
+
+          <div class="text-right">
+            <button class="btn btn-primary" type="submit">sign up</button>
+          </div>
       </form>
     </div>
   </div>

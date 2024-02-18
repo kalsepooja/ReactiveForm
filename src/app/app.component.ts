@@ -31,11 +31,20 @@ export class AppComponent implements OnInit{
       empId: new FormControl(null, [Validators.required]),
       gender: new FormControl(null),
       currentAdress: new FormGroup({
+        country: new FormControl('India', [Validators.required]),
+        state: new FormControl(null, [Validators.required]),
+        city: new FormControl(null, [Validators.required]),
+        zipCode: new FormControl(null, [Validators.required])
+      }),
+      permenentAdress: new FormGroup({
         country: new FormControl(null, [Validators.required]),
         state: new FormControl(null, [Validators.required]),
         city: new FormControl(null, [Validators.required]),
         zipCode: new FormControl(null, [Validators.required])
-      })
+      }),
+      isAddressSame: new FormControl(null),
+      password: new FormControl(null, [Validators.required, Validators.pattern(CustomRegex.password)]),
+      comfirmPassword: new FormControl(null, [Validators.required])
     });
   }
   onSignUp(){

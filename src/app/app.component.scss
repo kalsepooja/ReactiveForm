@@ -1,4 +1,10 @@
+.form-control{
+    background: linear-gradient(90deg,lavender, lavenderblush, ivory);
+}
+
+
 .form-control.ng-dirty.ng-invalid,
 .form-control.ng-touched.ng-invalid {
-    border: 2px solid red
+    border: 2px solid red;
+    // color:
 }
