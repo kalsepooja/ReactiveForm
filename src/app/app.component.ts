@@ -5,6 +5,7 @@ import { Icountry } from './shared/model/country';
 import { COUNTRIES_META_DATA } from './shared/const/country';
 import { __values } from 'tslib';
 import { NoSpaceValidator } from './shared/validations/noSpace';
+import { empIdValidator } from './shared/validations/empIdValidator';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit{
         NoSpaceValidator.noSpace
       ]),
       email: new FormControl(null,[Validators.required, Validators.pattern(CustomRegex.email)]),
-      empId: new FormControl(null, [Validators.required]),
+      empId: new FormControl(null, [Validators.required, empIdValidator.idValidator]),
       gender: new FormControl(null),
       skills: new FormArray([new FormControl(null), new FormControl(null)]),
       currentAdress: new FormGroup({
